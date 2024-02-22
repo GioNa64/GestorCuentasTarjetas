@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestorCuentasTarjetas.WebAPI", "GestorCuentasTarjetas.WebAPI\GestorCuentasTarjetas.WebAPI.csproj", "{011E533B-78F4-4026-BE49-5CA4D03BDF2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestorCuentasTarjetas.FrontendMvc", "GestorCuentasTarjetas.FrontendMvc\GestorCuentasTarjetas.FrontendMvc.csproj", "{BBAFE5C4-F55E-4424-8093-24A41CA32152}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{011E533B-78F4-4026-BE49-5CA4D03BDF2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{011E533B-78F4-4026-BE49-5CA4D03BDF2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{011E533B-78F4-4026-BE49-5CA4D03BDF2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{011E533B-78F4-4026-BE49-5CA4D03BDF2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBAFE5C4-F55E-4424-8093-24A41CA32152}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBAFE5C4-F55E-4424-8093-24A41CA32152}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBAFE5C4-F55E-4424-8093-24A41CA32152}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBAFE5C4-F55E-4424-8093-24A41CA32152}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6ABC4231-796E-4600-881C-1D7F7874429A}
+	EndGlobalSection
+EndGlobal

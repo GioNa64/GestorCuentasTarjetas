@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "131fc799-4122-4f43-8d30-e29a64171c9d",
+		"name": "ApiGestorTarjetas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24109878"
+	},
+	"item": [
+		{
+			"name": "GetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7165/api/Compra/Lista",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"Compra",
+						"Lista"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ComprasPorMes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7165/api/Compra/ComprasPorMes/1/2/2024",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"Compra",
+						"ComprasPorMes",
+						"1",
+						"2",
+						"2024"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TransaccionesPorMes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7165/api/Compra/TransaccionesPorMes/3/2/2024",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"Compra",
+						"TransaccionesPorMes",
+						"3",
+						"2",
+						"2024"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AgregarCompra",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tarjetaCreditoId\": 3,\r\n  \"descripcion\": \"Recarga Claro\",\r\n  \"monto\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7165/api/Compra/CrearCompra",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"Compra",
+						"CrearCompra"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AgregarPago",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tarjetaCreditoId\": 2,\r\n  \"fechaPago\": \"2024-02-20\",\r\n  \"monto\": 7.50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7165/api/Pago/AgregarPago",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"Pago",
+						"AgregarPago"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerEstadoCuentaDetallado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7165/api/Tarjeta/ObtenerEstadoCuentaDetallado/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"Tarjeta",
+						"ObtenerEstadoCuentaDetallado",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BuscarPorNombre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7165/api/Tarjeta/BuscarPorNombre/Maria",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7165",
+					"path": [
+						"api",
+						"Tarjeta",
+						"BuscarPorNombre",
+						"Maria"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

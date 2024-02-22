@@ -1,0 +1,58 @@
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+/*CSS para tabla
+*/
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: separate;
+}
+
+    #customers td,
+    #customers th {
+        padding: 8px;
+        text-align: center;
+    }
+
+    #customers tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #customers tr:hover {
+        background-color: #ddd;
+    }
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: #E01D32; /* Cambia #123678 a #ff0000 para rojo */
+        color: white;
+    }
+
+
+.borIz {
+    border-radius: 10px 0px 0px 0px;
+}
+
+.borDer {
+    border-radius: 0px 10px 0px 0px;
+}

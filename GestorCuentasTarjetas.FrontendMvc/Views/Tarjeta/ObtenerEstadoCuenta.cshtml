@@ -1,0 +1,104 @@
+﻿@using System.Globalization
+@model GestorCuentasTarjetas.FrontendMvc.Models.EstadoCuenta
+
+@{
+    ViewData["Title"] = "ObtenerEstadoCuenta";
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+}
+
+<div class="container mt-5">
+    <div class="card mb-4">
+        <div class="card-header bg-danger text-white">
+            <h3>Estado de Cuenta de TC</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-4">Nombre del Cliente:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Tarjeta.TitularNombre)</dd>
+                        <dt class="col-sm-4">Número de Tarjeta:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Tarjeta.NumeroTarjeta)</dd>
+                    </dl>
+                </div>
+
+                <div class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-4">Saldo Actual:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Tarjeta.SaldoActual)</dd>
+                        <dt class="col-sm-4">Límite de Crédito:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Tarjeta.LimiteCredito)</dd>
+                        <dt class="col-sm-4">Saldo Disponible:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Tarjeta.SaldoDisponible)</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header bg-danger text-white">
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tipo de Transacción</th>
+                        <th>Fecha</th>
+                        <th>Descripción</th>
+                        <th>Monto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var transaccion in Model.Transacciones)
+                    {
+                        <tr>
+                            <td>@transaccion.TipoTransaccion</td>
+                            <td>@transaccion.Fecha.ToString("dd/MM/yyyy")</td>
+                            <td>@transaccion.Descripcion</td>
+                            <td>@transaccion.Monto.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header bg-danger text-white">
+            <h4>Compras por Mes</h4>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mes</th>
+                        <th>Total de Compras</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var totalCompraPorMes in ViewBag.TotalComprasPorMes)
+                    {
+                        var mesYAnio = totalCompraPorMes.Key;
+                        var montoTotal = totalCompraPorMes.Value;
+
+                        var mesNumero = int.Parse(mesYAnio.Split('/')[0]);
+                        var nombreMes = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(mesNumero);
+                        nombreMes = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(nombreMes);
+
+                        <tr>
+                            <td>@nombreMes</td>
+                            <td>@montoTotal.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="text-center">
+                    <a asp-controller="Tarjeta" asp-action="Index" class="btn btn-secondary">Regresar</a>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<GestorCuentasTarjetas.FrontendMvc.Models.Tarjeta>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="d-flex justify-content-between align-items-center">
+    <h2 style="margin: 40px;">Listado de Tarjetas</h2>
+
+    <form class="form-inline" action="@Url.Action("BuscarPorNombre", "Tarjeta")" method="get">
+        <div class="input-group mb-3">
+            <input type="text" name="nombreTarjeta" style="margin-right: 10px;" id="nombreTarjeta" class="form-control" placeholder="Nombre " />
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Buscar</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<div class="d-flex justify-content-center mt-4">
+    <table id="customers" class="table table-striped text-center align-middle">
+        <thead>
+            <tr>
+                <th class="borIz">Número de Tarjeta</th>
+                <th>Nombre del Cliente</th>
+                <th class="borDer">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.NumeroTarjeta)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TitularNombre)</td>
+                    <td>
+                        <div class="btn-group">
+                            <a asp-action="ObtenerEstadoCuenta" asp-route-idTarjeta="@item.IdTarjeta" class="btn btn-primary btn-sm boton-con-espacio">Ver Estado de Cuenta</a>
+                            <a asp-controller="Compra" asp-action="CrearCompra" asp-route-idTarjeta="@item.IdTarjeta" class="btn btn-success btn-sm boton-con-espacio">Nueva Compra</a>
+                            <a asp-controller="Pago" asp-action="CrearPago"  asp-route-idTarjeta="@item.IdTarjeta" class="btn btn-danger btn-sm boton-con-espacio">Hacer Un Pago</a>
+                            <a asp-controller="Transaccion" asp-action="ObtenerTranssacion" asp-route-idTarjeta="@item.IdTarjeta" class="btn btn-secondary btn-sm">Transacciones</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<style>
+    .boton-con-espacio {
+        margin-right: 10px;
+    }
+</style>

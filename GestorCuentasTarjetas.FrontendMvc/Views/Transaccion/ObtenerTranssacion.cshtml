@@ -1,0 +1,59 @@
+﻿@using System.Globalization
+
+@model GestorCuentasTarjetas.FrontendMvc.Models.EstadoCuenta
+
+@{
+    ViewData["Title"] = "ObtenerTranssacion";
+}
+
+
+<div class="container mt-5">
+    <div class="card mb-4">
+        <div class="card-header bg-danger text-white">
+            <h2 class="text-center">Transacciones</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-4">Nombre del Cliente:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Tarjeta.TitularNombre)</dd>
+                        <dt class="col-sm-4">Número de Tarjeta:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Tarjeta.NumeroTarjeta)</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header bg-danger text-white">
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tipo de Transacción</th>
+                        <th>Fecha</th>
+                        <th>Descripción</th>
+                        <th>Monto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var transaccion in Model.Transacciones)
+                    {
+                        <tr>
+                            <td>@transaccion.TipoTransaccion</td>
+                            <td>@transaccion.Fecha.ToString("dd/MM/yyyy")</td>
+                            <td>@transaccion.Descripcion</td>
+                            <td>@transaccion.Monto.ToString("C", CultureInfo.CreateSpecificCulture("en-US"))</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="text-center">
+        <a asp-controller="Tarjeta" asp-action="Index" class="btn btn-secondary">Regresar</a>
+    </div>
